@@ -21,6 +21,14 @@ class Store:
     def rows(self, module: str) -> list[dict[str, Any]]:
         return self._tables.setdefault(module, [])
 
+    def reset_table(self, module: str) -> None:
+        """清空某张运行期表（授权沙盘重置时使用）。"""
+        self._tables[module] = []
+
+    def replace_table(self, module: str, rows: list[dict[str, Any]]) -> None:
+        """整表替换（授权沙盘事务回滚时使用）。"""
+        self._tables[module] = rows
+
     def find(self, module: str, entry_id: int) -> dict[str, Any] | None:
         for row in self.rows(module):
             if int(row.get("id", 0)) == entry_id:
