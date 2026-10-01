@@ -70,7 +70,7 @@ import { request } from '@/api/client'
 type Row = Record<string, string | number | null>
 
 const ENDPOINT = '/api/bridge'
-const columns = ["检测编号", "桥梁名称", "检测类型", "检测日期", "技术状况评分", "主要病害", "检测单位", "检测状态"]
+const columns = ["检测编号", "桥梁编号", "桥梁名称", "检测类型", "检测日期", "技术状况评分", "主要病害", "检测单位", "检测状态", "授权核验结论"]
 const actions = ["开始检测", "完成评定", "归档报告"]
 const statuses = ["待检测", "检测中", "已评定", "已归档"]
 const stats = [{"label": "待检测桥梁", "value": 0}, {"label": "检测中桥梁", "value": 0}, {"label": "已评定桥梁", "value": 0}]
